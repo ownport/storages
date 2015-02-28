@@ -11,7 +11,7 @@ The collection of simple storages on python
 ## Metadata
 
 Example of usage:
-```
+```python
 >>> from storages.metadata import Metadata
 >>> meta = Metadata(':memory:')
 >>>
