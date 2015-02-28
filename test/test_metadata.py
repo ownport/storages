@@ -23,13 +23,12 @@ class MetadataTest(unittest.TestCase):
 
         database_path = ':memory:'
         meta = metadata.Metadata(database_path)
-        self.assertTrue(os.path.exists(database_path))
+        self.assertTrue(type(meta), metadata.Metadata)
 
     def test_store_metadata(self):
 
         database_path = ':memory:'
         meta = metadata.Metadata(database_path)
-        self.assertTrue(os.path.exists(database_path))
 
         self.assertRaises(RuntimeError, meta.put, None, None)
         self.assertRaises(RuntimeError, meta.put, 'a1', None)
@@ -46,7 +45,6 @@ class MetadataTest(unittest.TestCase):
 
         database_path = ':memory:'
         meta = metadata.Metadata(database_path)
-        self.assertTrue(os.path.exists(database_path))
 
         meta.put('b1', [('k1','v1')])
         meta.put('b2', [('k2','v2')])
@@ -61,7 +59,6 @@ class MetadataTest(unittest.TestCase):
 
         database_path = ':memory:'
         meta = metadata.Metadata(database_path)
-        self.assertTrue(os.path.exists(database_path))
 
         meta.put('b1', [('k1','v1')])
         meta.put('b2', [('k1','v2')])
