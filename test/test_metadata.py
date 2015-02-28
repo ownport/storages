@@ -21,7 +21,7 @@ class MetadataTest(unittest.TestCase):
 
     def test_create_metadata(self):
 
-        database_path = 'tmp/test_create_metadata.sqlite'
+        database_path = ':memory:'
         meta = metadata.Metadata(database_path)
         self.assertTrue(os.path.exists(database_path))
         os.remove(database_path)
@@ -29,7 +29,7 @@ class MetadataTest(unittest.TestCase):
 
     def test_store_metadata(self):
 
-        database_path = 'tmp/test_store_metadata.sqlite'
+        database_path = ':memory:'
         meta = metadata.Metadata(database_path)
         self.assertTrue(os.path.exists(database_path))
 
@@ -49,7 +49,7 @@ class MetadataTest(unittest.TestCase):
 
     def test_get_metadata(self):
 
-        database_path = 'tmp/test_get_metadata.sqlite'
+        database_path = ':memory:'
         meta = metadata.Metadata(database_path)
         self.assertTrue(os.path.exists(database_path))
 
@@ -67,7 +67,7 @@ class MetadataTest(unittest.TestCase):
 
     def test_search_metadata(self):
 
-        database_path = 'tmp/test_search_metadata.sqlite'
+        database_path = ':memory:'
         meta = metadata.Metadata(database_path)
         self.assertTrue(os.path.exists(database_path))
 
