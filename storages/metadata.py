@@ -92,4 +92,4 @@ class Metadata(object):
     def count(self):
         ''' return count of records in database
         '''
-        return Scheme.select().count()
+        return Scheme.select().group_by(Scheme.item_id).count()

@@ -36,6 +36,7 @@ class MetadataTest(unittest.TestCase):
         meta.put('b1', [('k1','v1'),('k2','v2')])
         meta.put('b1', [('k2','v3'),('k3','v2')])
         self.assertEqual(meta.get('b1'), ('b1', [('k1','v1'),('k2','v2'),('k2','v3'),('k3','v2')]))
+        self.assertEqual(meta.count(),1)
 
         meta.delete('b1')
         self.assertEqual(meta.get('b1'), ('b1', []))
@@ -50,6 +51,7 @@ class MetadataTest(unittest.TestCase):
         meta.put('b2', [('k2','v2')])
         meta.put('b3', [('k3','v3')])
         self.assertEqual(meta.get(), [(u'b1', [(u'k1', u'v1')]), (u'b2', [(u'k2', u'v2')]), (u'b3', [(u'k3', u'v3')])])
+        self.assertEqual(meta.count(),3)
 
         meta.delete(['b1', 'b2', 'b3'])
         self.assertEqual(meta.count(),0)
