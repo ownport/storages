@@ -1,8 +1,4 @@
-import os
-
 from packages import peewee
-# from utils import normalize_path
-
 
 metadata_db_proxy = peewee.Proxy()
 class Scheme(peewee.Model):
