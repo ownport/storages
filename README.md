@@ -46,3 +46,7 @@ to be added later
 
 to be added later
 
+## Change log
+
+Based on GitHub [Milestones](https://github.com/ownport/storages/milestones)
+
