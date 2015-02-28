@@ -20,14 +20,12 @@ class MetadataTest(unittest.TestCase):
 
     def test_create_metadata(self):
 
-        database_path = ':memory:'
-        meta = metadata.Metadata(database_path)
+        meta = metadata.Metadata(':memory:')
         self.assertTrue(type(meta), metadata.Metadata)
 
     def test_store_metadata(self):
 
-        database_path = ':memory:'
-        meta = metadata.Metadata(database_path)
+        meta = metadata.Metadata(':memory:')
 
         self.assertRaises(RuntimeError, meta.put, None, None)
         self.assertRaises(RuntimeError, meta.put, 'a1', None)
@@ -43,8 +41,7 @@ class MetadataTest(unittest.TestCase):
 
     def test_get_metadata(self):
 
-        database_path = ':memory:'
-        meta = metadata.Metadata(database_path)
+        meta = metadata.Metadata(':memory:')
 
         meta.put('b1', [('k1','v1')])
         meta.put('b2', [('k2','v2')])
@@ -58,8 +55,7 @@ class MetadataTest(unittest.TestCase):
 
     def test_search_metadata(self):
 
-        database_path = ':memory:'
-        meta = metadata.Metadata(database_path)
+        meta = metadata.Metadata(':memory:')
 
         meta.put('b1', [('k1','v1')])
         meta.put('b2', [('k1','v2')])
