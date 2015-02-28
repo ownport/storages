@@ -24,8 +24,6 @@ class MetadataTest(unittest.TestCase):
         database_path = ':memory:'
         meta = metadata.Metadata(database_path)
         self.assertTrue(os.path.exists(database_path))
-        os.remove(database_path)
-        self.assertTrue(not os.path.exists(database_path))
 
     def test_store_metadata(self):
 
@@ -43,9 +41,6 @@ class MetadataTest(unittest.TestCase):
         meta.delete('b1')
         self.assertEqual(meta.get('b1'), ('b1', []))
 
-        os.remove(database_path)
-        self.assertTrue(not os.path.exists(database_path))
-
 
     def test_get_metadata(self):
 
@@ -61,9 +56,6 @@ class MetadataTest(unittest.TestCase):
         meta.delete(['b1', 'b2', 'b3'])
         self.assertEqual(meta.count(),0)
         
-        os.remove(database_path)
-        self.assertTrue(not os.path.exists(database_path))
-
 
     def test_search_metadata(self):
 
@@ -77,6 +69,4 @@ class MetadataTest(unittest.TestCase):
 
         self.assertEqual(meta.search('k1', 'v2'), ['b2'])
         
-        os.remove(database_path)
-        self.assertTrue(not os.path.exists(database_path))
 
