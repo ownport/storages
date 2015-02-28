@@ -76,6 +76,17 @@ class WebContent(object):
             else:
                 return ()
 
+    def delete(self, content_id):
+        ''' delete item 
+        '''
+        with self._db.transaction():
+            if isinstance(content_id, (list, tuple)):
+                for content in Scheme.select().where(Scheme.content_id << content_id):
+                    content.delete_instance()                
+            else:
+                for content in Scheme.select().where(Scheme.content_id == content_id):
+                    content.delete_instance()
+
 
     def count(self):
         ''' return count of records in database
