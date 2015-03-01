@@ -58,7 +58,7 @@ class WebContent(object):
             try:
                 Scheme.create(**{'content_id': content_id, 'headers': headers, 'payload': payload})
             except peewee.IntegrityError:
-                # TODO update metadata
+                # TODO update web content
                 pass
         return self.get(content_id)
 
