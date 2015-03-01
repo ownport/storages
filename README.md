@@ -53,7 +53,26 @@ Example of usage:
 
 ## Web Content
 
-to be added later
+Web content will be stored with the next fields: content_id, headers, payload. Where content_id is unique key for content. The headers keys is dictionary, serialized in database in JSON format. The payoad is web page content.
+
+```python
+>>> from storages.webcontent import WebContent
+>>> content = WebContent(':memory:')
+>>>
+>>> content.put(u'1', {u'k1':u'v1'}, u'test')
+(u'1', {u'k1': u'v1'}, u'test')
+>>> content.count()
+1
+>>> content.get()
+[(u'1', {u'k1': u'v1'}, u'test')]
+>>> content.get(u'1')
+(u'1', {u'k1': u'v1'}, u'test')
+>>> content.delete(u'1')
+>>> 
+>>> content.count()
+0
+>>>
+```
 
 ## Files
 
