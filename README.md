@@ -8,9 +8,21 @@ The collection of simple storages on python
 - Web content
 - Files
 
+[peewee](https://github.com/coleifer/peewee) library is used which allow you to store data in 
+sqlite, mysql, postgresql databases. The access to items provides by get(), put(), delete(), search() methods
+
 ## Metadata
 
+All data in metadata storage are saved as collection of key/value with specific item_id: 
+
+```python
+item = (u'item_id', (('k1','v1'), ('k2','v2'), ('k3','v3'),)
+```
+
+One unique id with multiple pairs of key/value
+
 Example of usage:
+
 ```python
 >>> from storages.metadata import Metadata
 >>> meta = Metadata(':memory:')
@@ -37,6 +49,7 @@ Example of usage:
 0
 >>> 
 ```
+
 
 ## Web Content
 
