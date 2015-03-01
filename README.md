@@ -9,7 +9,7 @@ The collection of simple storages on python
 - Files
 
 [peewee](https://github.com/coleifer/peewee) library is used which allow you to store data in 
-sqlite, mysql, postgresql databases. The access to items provides by get(), put(), delete(), search() methods
+sqlite database. The access to items provides by get(), put(), delete(), search() methods
 
 ## Metadata
 
@@ -72,6 +72,25 @@ Web content will be stored with the next fields: content_id, headers, payload. W
 >>> content.count()
 0
 >>>
+```
+
+### How to use WebContent with [Scrapy](http://scrapy.org/)
+
+```python
+import hashlib
+from storages.webcontent import WebContent
+
+class ItemsStoragePipeline(object):
+
+  def __init__(self):
+
+    self.storage = WebContent('web-content.sqlite')
+
+def process_item(self, item, spider):    
+
+	content_id = hashlib.md5(item[u'url']).hexdigest()
+	self.storage.put(content_id, item[u'headers'], item[u'content'])
+    return item
 ```
 
 ## Files
